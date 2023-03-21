@@ -7,19 +7,19 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home <i class="fa fa-home" style="font-size:19px;"></i></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'collections' %}active{% endif %}" href="{% url 'collections' %}">Collections <i class="fa fa-list-alt" style="font-size:18px;"></i></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'collections' %}active{% endif %}" href="{% url 'collections' %}">Collections</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'cart' %}active{% endif %}" href="{% url 'cart' %}">Cart <i class="fa fa-shopping-cart" style="font-size:19px;"></i></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'cart' %}active{% endif %}" href="{% url 'cart' %}">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %}active{% endif %}" href="{% url 'wishlist' %}">Wishlist <i class="fa fa-heart" style="font-size:19px;"></i></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %}active{% endif %}" href="{% url 'wishlist' %}">Wishlist</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'checkout' %}active{% endif %}" href="{% url 'checkout' %}">Checkout <i class="fa fa-shopping-bag" style="font-size:19px;"></i></a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'checkout' %}active{% endif %}" href="{% url 'checkout' %}">Checkout</a>
         </li>
         {% if request.user.is_authenticated %}
           <div class="nav-item dropdown">
@@ -32,10 +32,10 @@
             </div>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'loginpage' %}active{% endif %}" href="{% url 'loginpage' %}">Login <i class="fa fa-sign-in" style="font-size:19px;"></i></a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'loginpage' %}active{% endif %}" href="{% url 'loginpage' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'register' %}active{% endif %}" href="{% url 'register' %}">Register <i class="fa fa-file" style="font-size:19px;"></i></a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
           </li>
         {% endif %}
       </ul>
