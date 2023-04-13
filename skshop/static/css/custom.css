@@ -6,3 +6,9 @@
 .checkoutform input {
     font-size: 14px !important;
 }
+
+.whatsapp-chat {
+    position: fixed;
+    bottom: 02% !important;
+    left: 02% !important;
+}
