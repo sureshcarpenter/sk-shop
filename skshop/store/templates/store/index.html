@@ -1,5 +1,203 @@
 {% extends 'store/layouts/main.html' %}
 {% block content %}
-{% include 'store/inc/slider.html' %}
-<h2>Hello World</h2>
+{% comment %} {% include 'store/inc/slider.html' %} {% endcomment %}
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Trending Products</h3>
+            <hr/>
+            <div class="row">
+                {% for item in trending_products %}
+                    <div class="col-md-3 product_data">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'productview' item.category.slug item.slug %}">
+                                    <div class="category-image">
+                                        <img src="{{ item.product_image.url }}" alt="Product image" />
+                                    </div>
+                                    <h4 class="text-center"> {{ item.name }} </h4>
+                                </a>
+                                <span class="float-left"> <s>₹{{ item.origional_price | stringformat:'d' }}</s> </span>
+                                <span class="float-right"> ₹{{ item.selling_price | stringformat:'d' }} </span>
+                                <br>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2">
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ item.id }}" id='product_id' class="prod_id">
+                                        <div class="input-group text-center mb-3">
+                                            <button class="input-group-text decrement-btn">-</button>
+                                            <input type:"text" name="quantity" class="form-control qty-input text-center" value="1">
+                                            <button class="input-group-text increment-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-0">
+                                        <span class="mb-2">
+                                            {% if item.quantity > 0 %}
+                                                <button type="button" class="btn btn-primary py-2 me-3 btn-sm addToCartBtn">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger py-2 me-3 btn-sm disabled">Out of Stock</button>
+                                            {% endif %}
+                                        </span>    
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h3>Latest Products</h3>
+            <hr/>
+            <div class="row">
+                {% for item in trending_products %}
+                    <div class="col-md-3 product_data">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'productview' item.category.slug item.slug %}">
+                                    <div class="category-image">
+                                        <img src="{{ item.product_image.url }}" alt="Product image" />
+                                    </div>
+                                    <h4 class="text-center"> {{ item.name }} </h4>
+                                </a>
+                                <span class="float-left"> <s>₹{{ item.origional_price | stringformat:'d' }}</s> </span>
+                                <span class="float-right"> ₹{{ item.selling_price | stringformat:'d' }} </span>
+                                <br>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2">
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ item.id }}" id='product_id' class="prod_id">
+                                        <div class="input-group text-center mb-3">
+                                            <button class="input-group-text decrement-btn">-</button>
+                                            <input type:"text" name="quantity" class="form-control qty-input text-center" value="1">
+                                            <button class="input-group-text increment-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-0">
+                                        <span class="mb-2">
+                                            {% if item.quantity > 0 %}
+                                                <button type="button" class="btn btn-primary py-2 me-3 btn-sm addToCartBtn">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger py-2 me-3 btn-sm disabled">Out of Stock</button>
+                                            {% endif %}
+                                        </span>    
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h3>On Sale Products</h3>
+            <hr/>
+            <div class="row">
+                {% for item in trending_products %}
+                    <div class="col-md-3 product_data">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'productview' item.category.slug item.slug %}">
+                                    <div class="category-image">
+                                        <img src="{{ item.product_image.url }}" alt="Product image" />
+                                    </div>
+                                    <h4 class="text-center"> {{ item.name }} </h4>
+                                </a>
+                                <span class="float-left"> <s>₹{{ item.origional_price | stringformat:'d' }}</s> </span>
+                                <span class="float-right"> ₹{{ item.selling_price | stringformat:'d' }} </span>
+                                <br>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2">
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ item.id }}" id='product_id' class="prod_id">
+                                        <div class="input-group text-center mb-3">
+                                            <button class="input-group-text decrement-btn">-</button>
+                                            <input type:"text" name="quantity" class="form-control qty-input text-center" value="1">
+                                            <button class="input-group-text increment-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-0">
+                                        <span class="mb-2">
+                                            {% if item.quantity > 0 %}
+                                                <button type="button" class="btn btn-primary py-2 me-3 btn-sm addToCartBtn">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger py-2 me-3 btn-sm disabled">Out of Stock</button>
+                                            {% endif %}
+                                        </span>    
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h3>Evergreen Products</h3>
+            <hr/>
+            <div class="row">
+                {% for item in trending_products %}
+                    <div class="col-md-3 product_data">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'productview' item.category.slug item.slug %}">
+                                    <div class="category-image">
+                                        <img src="{{ item.product_image.url }}" alt="Product image" />
+                                    </div>
+                                    <h4 class="text-center"> {{ item.name }} </h4>
+                                </a>
+                                <span class="float-left"> <s>₹{{ item.origional_price | stringformat:'d' }}</s> </span>
+                                <span class="float-right"> ₹{{ item.selling_price | stringformat:'d' }} </span>
+                                <br>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2">
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ item.id }}" id='product_id' class="prod_id">
+                                        <div class="input-group text-center mb-3">
+                                            <button class="input-group-text decrement-btn">-</button>
+                                            <input type:"text" name="quantity" class="form-control qty-input text-center" value="1">
+                                            <button class="input-group-text increment-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-0">
+                                        <span class="mb-2">
+                                            {% if item.quantity > 0 %}
+                                                <button type="button" class="btn btn-primary py-2 me-3 btn-sm addToCartBtn">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger py-2 me-3 btn-sm disabled">Out of Stock</button>
+                                            {% endif %}
+                                        </span>    
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}    

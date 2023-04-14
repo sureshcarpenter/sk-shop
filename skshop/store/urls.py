@@ -7,6 +7,9 @@ urlpatterns = [
     path('collections/', views.collections, name='collections'),
     path('collections/<str:slug>', views.collectionsview, name="collectionsview"),
     path('collections/<str:cate_slug>/<str:prod_slug>', views.productview, name='productview'),
+
+    path('product-list', views.productlistAjax),
+    path('searchproduct', views.searchproduct, name="searchproduct"),
     
     path('register/', authview.register, name="register"),
     path('login/', authview.loginpage, name='loginpage'),

@@ -12,3 +12,8 @@
     bottom: 02% !important;
     left: 02% !important;
 }
+
+.search-bar {
+    width: 30% !important;
+    margin-left: 5%;
+}
